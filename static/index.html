@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFitMantra - Your Personal Workout Journey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i>
+                <h1>MyFitMantra</h1>
+            </div>
+            <p>Craft your perfect workout plan in seconds</p>
+        </header>
+
+        <div class="app-container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="form-tab">
+                    <i class="fas fa-sliders"></i> Create Plan
+                </button>
+                <button class="tab-btn" data-tab="results-tab">
+                    <i class="fas fa-clipboard-list"></i> Your Plan
+                </button>
+            </div>
+
+            <div class="tab-content">
+                <section id="form-tab" class="tab-pane active">
+                    <div class="form-intro">
+                        <h2><i class="fas fa-bolt"></i> Build Your Fitness Plan</h2>
+                        <p>Tell us about your goals and preferences, and we'll create your personalized workout routine.</p>
+                    </div>
+
+                    <form id="workoutForm" class="animated-form">
+                        <div class="form-card">
+                            <div class="form-header">
+                                <h3><i class="fas fa-user"></i> About You</h3>
+                            </div>
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" name="name" placeholder="e.g., Alex">
+                                    <small>How we should address you in your plan</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="experience">Experience Level</label>
+                                    <div class="radio-group">
+                                        <div class="radio-option">
+                                            <input type="radio" id="beginner" name="experience" value="beginner">
+                                            <label for="beginner">
+                                                <i class="fas fa-seedling"></i>
+                                                <span>Beginner</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="intermediate" name="experience" value="intermediate" checked>
+                                            <label for="intermediate">
+                                                <i class="fas fa-running"></i>
+                                                <span>Intermediate</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-card">
+                            <div class="form-header">
+                                <h3><i class="fas fa-bullseye"></i> Your Goals</h3>
+                            </div>
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label>Primary Goal</label>
+                                    <div class="goal-cards">
+                                        <div class="goal-card">
+                                            <input type="radio" id="goal-strength" name="goal" value="strength">
+                                            <label for="goal-strength">
+                                                <i class="fas fa-dumbbell"></i>
+                                                <span>Strength</span>
+                                            </label>
+                                        </div>
+                                        <div class="goal-card">
+                                            <input type="radio" id="goal-muscle-gain" name="goal" value="muscle_gain">
+                                            <label for="goal-muscle-gain">
+                                                <i class="fas fa-child"></i>
+                                                <span>Muscle Gain</span>
+                                            </label>
+                                        </div>
+                                        <div class="goal-card">
+                                            <input type="radio" id="goal-fat-loss" name="goal" value="fat_loss">
+                                            <label for="goal-fat-loss">
+                                                <i class="fas fa-fire-alt"></i>
+                                                <span>Fat Loss</span>
+                                            </label>
+                                        </div>
+                                        <div class="goal-card">
+                                            <input type="radio" id="goal-endurance" name="goal" value="endurance">
+                                            <label for="goal-endurance">
+                                                <i class="fas fa-heartbeat"></i>
+                                                <span>Endurance</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-card">
+                            <div class="form-header">
+                                <h3><i class="fas fa-cogs"></i> Workout Details</h3>
+                            </div>
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label for="days_per_week">Training Days per Week</label>
+                                    <div class="days-slider">
+                                        <div class="days-options">
+                                            <button type="button" class="day-btn" data-value="1">1</button>
+                                            <button type="button" class="day-btn" data-value="2">2</button>
+                                            <button type="button" class="day-btn active" data-value="3">3</button>
+                                            <button type="button" class="day-btn" data-value="4">4</button>
+                                            <button type="button" class="day-btn" data-value="5">5</button>
+                                            <button type="button" class="day-btn" data-value="6">6</button>
+                                            <button type="button" class="day-btn" data-value="7">7</button>
+                                        </div>
+                                        <input type="hidden" id="days_per_week" name="days_per_week" value="3">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Equipment Available</label>
+                                    <div class="equipment-toggles">
+                                        <div class="equipment-toggle">
+                                            <input type="checkbox" id="eq-dumbbells" value="dumbbells" name="equipment">
+                                            <label for="eq-dumbbells">
+                                                <i class="fas fa-dumbbell"></i> <!-- Keeping dumbbell icon as it's good -->
+                                                <span>Dumbbells</span>
+                                            </label>
+                                        </div>
+                                        <div class="equipment-toggle">
+                                            <input type="checkbox" id="eq-bench" value="bench" name="equipment">
+                                            <label for="eq-bench">
+                                                <i class="fas fa-weight"></i> <!-- Better icon for bench -->
+                                                <span>Bench</span>
+                                            </label>
+                                        </div>
+                                        <div class="equipment-toggle">
+                                            <input type="checkbox" id="eq-bands" value="resistance_band" name="equipment">
+                                            <label for="eq-bands">
+                                                <i class="fas fa-ring"></i> <!-- Better icon for bands -->
+                                                <span>Bands</span>
+                                            </label>
+                                        </div>
+                                        <div class="equipment-toggle">
+                                            <input type="checkbox" id="eq-barbell" value="barbell" name="equipment">
+                                            <label for="eq-barbell">
+                                                <i class="fas fa-weight-hanging"></i> <!-- Keeping barbell icon -->
+                                                <span>Barbell</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="custom-equipment">
+                                        <label for="equipment">
+                                            <i class="fas fa-plus-circle"></i> Additional Equipment
+                                        </label>
+                                        <input type="text" id="equipment" name="custom_equipment" placeholder="e.g., kettlebell, jump rope">
+                                        <small>Separate with commas</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="generateBtn" class="cta-button">
+                            <i class="fas fa-bolt"></i> Generate My Workout Plan
+                        </button>
+                    </form>
+                </section>
+
+                <section id="results-tab" class="tab-pane">
+                    <div id="status-message-container"></div>
+                    
+                    <div id="workout-results-container" class="workout-plan" style="display: none;">
+                        <div class="plan-header">
+                            <h2>Your Personalized Workout Plan</h2>
+                            <div class="plan-actions">
+                                <button id="printBtn" class="action-btn">
+                                    <i class="fas fa-print"></i> Print
+                                </button>
+                                <button id="downloadBtn" class="action-btn">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                                <button id="shareBtn" class="action-btn">
+                                    <i class="fas fa-share-alt"></i> Share
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="week-navigation">
+                            <button id="prevWeek" class="week-nav-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <span id="currentWeek">Week 1</span>
+                            <button id="nextWeek" class="week-nav-btn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div id="plan-output" class="sessions-grid">
+                            <!-- Workout plan will be rendered here by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 MyFitMantra - Your Personal Fitness Journey</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
